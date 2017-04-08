@@ -15,5 +15,4 @@ class Model Adınız extends Model
     protected $table = "Veri tablonuzun ADı";
 
 }
-
 Şeklinde Model OluşturaBilirsiniz.
