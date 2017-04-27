@@ -50,21 +50,21 @@ abstract class Model
 
     private function veriEkle(array $veri)
     {
-        $stranahtars = "";
-        $strBinds = "";
-        $binds = [];
-        $values = [];
+        $strAnahtarlar = "";
+        $strBaglar = "";
+        $Baglar = [];
+        $Degerler = [];
 
-        foreach ($veri as $anahtar => $value){
-            $stranahtars = "{$stranahtars},{$anahtar}";
-            $strBinds = "{$strBinds},:{$anahtar}";
-            $binds[] = ":{$anahtar}";
-            $values[] = $value;
+        foreach ($veri as $anahtar => $deger){
+            $strAnahtarlar = "{$strAnahtarlar},{$anahtar}";
+            $strBaglar = "{$strBaglar},:{$anahtar}";
+            $Baglar[] = ":{$anahtar}";
+            $Degerler[] = $deger;
         }
-        $stranahtars = substr($stranahtars, 1);
-        $strBinds = substr($strBinds, 1);
+        $strAnahtarlar = substr($strAnahtarlar, 1);
+        $strBaglar = substr($strBaglar, 1);
 
-        return [$stranahtars, $strBinds, $binds, $values];
+        return [$strAnahtarlar, $strBaglar, $Baglar, $Degerler];
     }
 
     public function duzenle(array $veri, $Id)
@@ -84,17 +84,17 @@ abstract class Model
     private function veriDuzenle(array $veri)
     {
         $strAnahtarBaglanti = "";
-        $baglar = [];
+        $Baglar = [];
         $degerler = [];
 
         foreach ($veri as $anahtar => $deger){
             $strAnahtarBaglanti = "{$strAnahtarBaglanti},{$anahtar}=:{$anahtar}";
-            $baglar[] = ":{$anahtar}";
-            $degerler[] = $deger;
+            $Baglar[] = ":{$Baglar}";
+            $Degerler[] = $deger;
         }
         $strAnahtarBaglanti = substr($strAnahtarBaglanti, 1);
 
-        return [$strAnahtarBaglanti, $baglar, $degerler];
+        return [$strAnahtarBaglanti, $Baglar, $degerler];
     }
 
     public function sil($Id)
